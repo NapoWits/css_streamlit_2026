@@ -39,6 +39,10 @@ if uploaded_file:
         st.dataframe(filtered)
     else:
         st.write("Showing all publications")
+else:
+    df = pd.read_csv("dog_walking_publications_index_v5_realistic_growth.csv")
+    st.info("Using default CSV included with the app")
+    st.dataframe(publications)
 
 # Add a section for visualizing publication trends
 st.header("Publication Trends")
@@ -118,5 +122,6 @@ elif data_option == "Weather Data":
 st.header("Contact Information")
 email = "napo.matsietsi@doggz.ac.za"
 st.write(f"You can reach {name} at {email}.")
+
 
 
