@@ -17,7 +17,7 @@ st.write(f"**Field of Research:** {field}")
 st.write(f"**Institution:** {institution}")
 
 st.image(
-    "https://github.com/NapoWits/css_streamlit_2026/blob/main/dog_03.jpg",
+    "dog_03.jpg",
     caption="Dog classes (Breed 01)"
 )
 
@@ -118,4 +118,5 @@ elif data_option == "Weather Data":
 st.header("Contact Information")
 email = "napo.matsietsi@doggz.ac.za"
 st.write(f"You can reach {name} at {email}.")
+
 
