@@ -39,14 +39,6 @@ if uploaded_file:
         st.dataframe(filtered)
     else:
         st.write("Showing all publications")
-    if uploaded_file is not None:
-        # User uploaded a file
-        df = pd.read_csv(uploaded_file)
-        st.success("Using uploaded CSV")
-    else:
-        df = pd.read_csv("dog_walking_publications_index_v5_realistic_growth.csv")
-        st.info("Using default CSV included with the app")
-        st.dataframe(publications)
 
 # Add a section for visualizing publication trends
 st.header("Publication Trends")
@@ -126,7 +118,3 @@ elif data_option == "Weather Data":
 st.header("Contact Information")
 email = "napo.matsietsi@doggz.ac.za"
 st.write(f"You can reach {name} at {email}.")
-
-
-
-
