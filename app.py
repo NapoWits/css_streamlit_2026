@@ -1,82 +1,64 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
 
 # Title of the app
-st.title("Researcher Profile Page with STEM Data")
+st.title("Dog Life & Benefits of Dog Walking")
+
+st.image(
+    "dog_03.jpg",
+    caption="A happy dog is a happy man!"
+)
+
+
+st.text(
+        "Research in the science of dog walking has been increasing throughout the years, where the benefits have been shown to far outway the negative consiquences. In this time of digital nomads, it is normal to sit for hours on a desk, focusing on the screen, while neglecting your your sorroundings as well as your dog.\nIt is in this light that this profile was created to detail the benefits of dog alking to the dogs, the dog owners and the community at large.\nThis profile will help showcase that trend and show how dog walking as a whole can help inprove the mood and happiness in communities.\n So what are you waiting for? Go out there, take your puppy with and get some Vitamin D."
+        )
+
+
+st.header("Dog Walking benefits")
+
+# Second paragraphy
+st.text(
+        "Data for this profile was collected over a 10 year period which includes publications by this author on the subject matter")
+
 
 # Collect basic information
-name = "Mr. Napo Matsietsi"
+name = "Dog Walker"
 field = "Dog Sciences"
 institution = "University of Doggz"
 
+
+    
+
 # Display basic profile information
-st.header("Researcher Overview")
+st.subheader("Profile of the Author")
 st.write(f"**Name:** {name}")
 st.write(f"**Field of Research:** {field}")
 st.write(f"**Institution:** {institution}")
 
-st.image(
-    "dog_03.jpg",
-    caption="Dog classes (Breed 01)"
-)
 
-# Add a section for publications
-st.header("Publications")
-uploaded_file = st.file_uploader("Upload a CSV of Publications", type="csv")
-
-if uploaded_file:
-    publications = pd.read_csv(uploaded_file)
-    st.dataframe(publications)
-
-    # Add filtering for year or keyword
-    keyword = st.text_input("Filter by keyword", "")
-    if keyword:
-        filtered = publications[
-            publications.apply(lambda row: keyword.lower() in row.astype(str).str.lower().values, axis=1)
-        ]
-        st.write(f"Filtered Results for '{keyword}':")
-        st.dataframe(filtered)
-    else:
-        st.write("Showing all publications")
-
-# Add a section for visualizing publication trends
-st.header("Publication Trends")
-if uploaded_file:
-    if "Year" in publications.columns:
-        year_counts = publications["Year"].value_counts().sort_index()
-        st.bar_chart(year_counts)
-    else:
-        st.write("The CSV does not have a 'Year' column to visualize trends.")
-
-# Add STEM Data Section
-st.header("Explore STEM Data")
+st.text(
+        "Mr Walker who is a research fellow at the University of Doggz has been involved in the cognitive behaviour and well being of dogs and the relationships between dogs and their owners.\nHe has been featured on Paws Magazine, Canine Magazine and Animals.\nPrevious to his role at Univerity of Doggz, he was a lecturer Zuma Univerity where he ultimately became a dean. He has a strong passion for he sciences and has dedicated his life to the understanding of dogs and dog behaviour"
+        )
 
 # Generate dummy data
 dog_data = pd.DataFrame({
     "Experiment": ["Labrador", "Pitbull", "German Sheperd", "Golden Retriver", "Poodle"],
     "Dog Age (years)": [4.2, 1.5, 2.9, 3.4, 7.1],
-    "Date": pd.date_range(start="2024-01-01", periods=5),
+    "Barking Level": [1.3, 9.1, 3, 2, 12]
 })
 
 owner_data = pd.DataFrame({
     "Dog Owner": ["John", "Thabo", "Neo", "Jane", "John Doe"],
     "Love for Dogs (Magnitude)": [2.0, 4.6, -1.8, 12.7, 6.3],
-    "Interview Date": pd.date_range(start="2024-01-01", periods=5),
+    "Happiness level since survey": [5, 5.9, 4, 16, 19],
 })
 
-weather_data = pd.DataFrame({
-    "City": ["Cape Town", "London", "New York", "Tokyo", "Sydney"],
-    "Temperature (°C)": [25, 10, -3, 15, 30],
-    "Humidity (%)": [65, 70, 55, 80, 50],
-    "Recorded Date": pd.date_range(start="2024-01-01", periods=5),
-})
-
-# Tabbed view for STEM data
-st.subheader("STEM Data Viewer")
+# Tabbed view for Dog Walking Data
+st.subheader("Dog Walking Data")
 data_option = st.selectbox(
     "Choose a dataset to explore", 
-    ["Dog Experiments", "Dog Ownership", "Weather Data"]
+    ["Dog Experiments", "Dog Ownership"]
 )
 
 if data_option == "Dog Experiments":
@@ -101,20 +83,35 @@ elif data_option == "Dog Ownership":
     st.write(f"Filtered Results for Love Range {love_filter}:")
     st.dataframe(filtered_dog)
 
-elif data_option == "Weather Data":
-    st.write("### Weather Data")
-    st.dataframe(weather_data)
-    # Add widgets to filter by temperature and humidity
-    temp_filter = st.slider("Filter by Temperature (°C)", -10.0, 40.0, (-10.0, 40.0))
-    humidity_filter = st.slider("Filter by Humidity (%)", 0, 100, (0, 100))
-    filtered_weather = weather_data[
-        weather_data["Temperature (°C)"].between(temp_filter[0], temp_filter[1]) &
-        weather_data["Humidity (%)"].between(humidity_filter[0], humidity_filter[1])
-    ]
-    st.write(f"Filtered Results for Temperature {temp_filter} and Humidity {humidity_filter}:")
-    st.dataframe(filtered_weather)
+# Add a section for publications
+st.subheader("Publications")
+
+napo_csv = pd.read_csv("dog_walking_publications_index_v5_realistic_growth.csv")
+
+uploaded_file = st.write(napo_csv)
+#uploaded_file = st.file_uploader("Upload a CSV of Publications", type="csv")
+
+# publications = (uploaded_file)
+# st.write(publications)
+
+if uploaded_file:
+    publications = pd.read_csv(uploaded_file)
+    st.dataframe(publications)
+
+    # Add filtering for year or keyword
+    keyword = st.column_input("Filter by keyword", "")
+    if keyword:
+        filtered = publications[
+            publications.apply(lambda row: keyword.lower() in row.astype(str).str.lower().values, axis=1)
+        ]
+        st.write(f"Filtered Results for '{keyword}':")
+        st.dataframe(filtered)
+    else:
+        st.write("Showing all publications")   
 
 # Add a contact section
-st.header("Contact Information")
-email = "napo.matsietsi@doggz.ac.za"
+st.subheader("Contact Information")
+email = "dog.walker@doggz.ac.za"
 st.write(f"You can reach {name} at {email}.")
+st.write(f"You can reach {name} at {email}.")
+
