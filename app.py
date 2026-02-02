@@ -54,6 +54,7 @@ owner_data = pd.DataFrame({
     "Happiness level since survey": [5, 5.9, 4, 16, 19],
 })
 
+
 # Tabbed view for Dog Walking Data
 st.subheader("Dog Walking Data")
 data_option = st.selectbox(
@@ -83,6 +84,7 @@ elif data_option == "Dog Ownership":
     st.write(f"Filtered Results for Love Range {love_filter}:")
     st.dataframe(filtered_dog)
 
+
 # Add a section for publications
 st.subheader("Publications")
 
@@ -107,11 +109,10 @@ if uploaded_file:
         st.write(f"Filtered Results for '{keyword}':")
         st.dataframe(filtered)
     else:
-        st.write("Showing all publications")   
+        st.write("Showing all publications")
+
 
 # Add a contact section
 st.subheader("Contact Information")
 email = "dog.walker@doggz.ac.za"
 st.write(f"You can reach {name} at {email}.")
-st.write(f"You can reach {name} at {email}.")
-
