@@ -38,7 +38,7 @@ st.write(f"**Institution:** {institution}")
 
 
 st.text(
-        "Mr Walker who is a research fellow at the University of Doggz has been involved in the cognitive behaviour and well being of dogs and the relationships between dogs and their owners.\nHe has been featured on Paws Magazine, Canine Magazine and Animals.\nPrevious to his role at Univerity of Doggz, he was a lecturer Zuma Univerity where he ultimately became a dean. He has a strong passion for he sciences and has dedicated his life to the understanding of dogs and dog behaviour"
+        "Mr Walker who is a research fellow at the University of Doggz has been involved in the cognitive behaviour and well being of dogs and the relationships between dogs and their owners.\nHe has been featured on Paws Magazine, Canine Magazine and Animals.\nPrevious to his role at the Univerity of Doggz, he was a lecturer at the Malema Univerity where he ultimately became a dean. He has a strong passion for the sciences and has dedicated his life to the understanding of dogs and dog behaviour"
         )
 
 # Generate dummy data
@@ -116,3 +116,4 @@ if uploaded_file:
 st.subheader("Contact Information")
 email = "dog.walker@doggz.ac.za"
 st.write(f"You can reach {name} at {email}.")
+
