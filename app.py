@@ -11,7 +11,7 @@ st.image(
 
 
 st.text(
-        "Research in the science of dog walking has been increasing throughout the years, where the benefits have been shown to far outway the negative consiquences. In this time of digital nomads, it is normal to sit for hours on a desk, focusing on the screen, while neglecting your your sorroundings as well as your dog.\nIt is in this light that this profile was created to detail the benefits of dog alking to the dogs, the dog owners and the community at large.\nThis profile will help showcase that trend and show how dog walking as a whole can help inprove the mood and happiness in communities.\n So what are you waiting for? Go out there, take your puppy with and get some Vitamin D."
+        "Research in the science of dog walking has been increasing throughout the years, where the benefits have been shown to far outway the negative consiquences. In this time of digital nomads, it is normal to sit for hours on a desk, focusing on the screen, while neglecting your sorroundings as well as your dog.\nIt is in this light that this profile was created to detail the benefits of dog walking to the dogs, the dog owners and the community at large.\nThis profile will help showcase that trends in the research and show how dog walking as a whole can help inprove the mood and happiness in communities.\n So what are you waiting for? Go out there, take your puppy with and get some Vitamin D."
         )
 
 
@@ -116,4 +116,5 @@ if uploaded_file:
 st.subheader("Contact Information")
 email = "dog.walker@doggz.ac.za"
 st.write(f"You can reach {name} at {email}.")
+
 
